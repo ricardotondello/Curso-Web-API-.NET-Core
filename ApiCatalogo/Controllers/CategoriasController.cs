@@ -8,6 +8,7 @@ using ApiCatalogo.Models;
 using ApiCatalogo.Controllers;
 using ApiCatalogo.Context;
 using Microsoft.EntityFrameworkCore;
+using ApiCatalogo.Services;
 
 namespace ApiCatalogo.Controllers
 {
@@ -22,6 +23,14 @@ namespace ApiCatalogo.Controllers
     {
       _context = contexto;
     }
+
+
+    [HttpGet("saudacao/{nome}")]
+    public ActionResult<string> GetSaudacao([FromServices] IMeuServico meuservico, string nome)
+    {
+      return meuservico.Saudacao(nome);
+    }
+
 
     [HttpGet]
     public ActionResult<IEnumerable<Categoria>> Get()

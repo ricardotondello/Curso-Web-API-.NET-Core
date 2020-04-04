@@ -25,21 +25,21 @@ namespace ApiCatalogo.Controllers
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Produto>> Get()
+    public async Task<ActionResult<IEnumerable<Produto>>> GetAsync()
     {
-      return _context.Produtos.AsNoTracking().ToList();
+      return await _context.Produtos.AsNoTracking().ToListAsync();
     }
 
-    [HttpGet("{id:int:min(1)}/{param2?}", Name = "ObterProduto")]
-    public ActionResult<Produto> Get(int id, string param2)
+    [HttpGet("{id:int:min(1)}", Name = "ObterProduto")]
+    public async Task<ActionResult<Produto>> GetAsync(int id, string param2)
     {
-      var produto = _context.Produtos.AsNoTracking().FirstOrDefault(p => p.ProdutoId == id);
+      var produto = _context.Produtos.AsNoTracking().FirstOrDefaultAsync(p => p.ProdutoId == id);
 
       if (produto == null)
       {
         return NotFound();
       }
-      return produto;
+      return await produto;
     }
 
     [HttpPost]

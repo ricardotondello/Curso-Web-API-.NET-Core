@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using ApiCatalogo.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
+using ApiCatalogo.Services;
 
 namespace ApiCatalogo
 {
@@ -33,6 +34,9 @@ namespace ApiCatalogo
               Configuration.GetConnectionString("DefaultConnection")
           )
       );
+
+      services.AddTransient<IMeuServico, MeuServico>();
+      
       services.AddControllers()
           .AddNewtonsoftJson(options =>
           {
