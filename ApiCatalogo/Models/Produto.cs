@@ -10,8 +10,9 @@ namespace ApiCatalogo.Models
     [Key]
     public int ProdutoId { get; set; }
   
-    [Required]
+    [Required(ErrorMessage = "O nome é obrigatorio")]
     [MaxLength(80)]
+    [StringLength(20, ErrorMessage = "O tamanho deve ser entre {2} e {1}", MinimumLength=5)]
     public string Nome { get; set; }
 
     [Required]
