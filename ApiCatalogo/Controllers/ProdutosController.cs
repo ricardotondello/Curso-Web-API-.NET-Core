@@ -8,6 +8,7 @@ using ApiCatalogo.Models;
 using ApiCatalogo.Controllers;
 using ApiCatalogo.Context;
 using Microsoft.EntityFrameworkCore;
+using ApiCatalogo.Filters;
 
 // .AsNoTracking() - nao faz cache das consultas
 
@@ -25,10 +26,17 @@ namespace ApiCatalogo.Controllers
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Produto>>> GetAsync()
+    [ServiceFilter(typeof(ApiLoggingFilter))]
+    public ActionResult<IEnumerable<Produto>> Get()
     {
-      return await _context.Produtos.AsNoTracking().ToListAsync();
+      return _context.Produtos.AsNoTracking().ToList();
     }
+
+    // [HttpGet]
+    // public async Task<ActionResult<IEnumerable<Produto>>> GetAsync()
+    // {
+    //   return await _context.Produtos.AsNoTracking().ToListAsync();
+    // }
 
     [HttpGet("{id:int:min(1)}", Name = "ObterProduto")]
     public async Task<ActionResult<Produto>> GetAsync(int id, string param2)
