@@ -9,6 +9,7 @@ using ApiCatalogo.Controllers;
 using ApiCatalogo.Context;
 using Microsoft.EntityFrameworkCore;
 using ApiCatalogo.Services;
+using Microsoft.Extensions.Configuration;
 
 namespace ApiCatalogo.Controllers
 {
@@ -18,12 +19,19 @@ namespace ApiCatalogo.Controllers
   public class CategoriasController : ControllerBase
   {
     private readonly AppDbContext _context;
+    private readonly IConfiguration _configuracao;
 
-    public CategoriasController(AppDbContext contexto)
+    public CategoriasController(AppDbContext contexto, IConfiguration config)
     {
       _context = contexto;
+      _configuracao = config;
     }
 
+    [HttpGet("autor")]
+    public string GetAutor()
+    {
+       return $"Autor: {_configuracao["autor"]}, Conexao: {_configuracao["ConnectionStrings:DefaultConnection"]}" ;
+    }
 
     [HttpGet("saudacao/{nome}")]
     public ActionResult<string> GetSaudacao([FromServices] IMeuServico meuservico, string nome)
