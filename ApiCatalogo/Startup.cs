@@ -17,6 +17,7 @@ using ApiCatalogo.Services;
 using ApiCatalogo.Filters;
 using ApiCatalogo.Extensions;
 using ApiCatalogo.Logging;
+using ApiCatalogo.Repository;
 
 namespace ApiCatalogo
 {
@@ -34,6 +35,7 @@ namespace ApiCatalogo
     {
       services.AddScoped<ApiLoggingFilter>();
 
+      services.AddScoped<IUnitOfWork, UnitOfWork>();
       services.AddDbContext<AppDbContext>(
           options => options.UseSqlite(
               Configuration.GetConnectionString("DefaultConnection")

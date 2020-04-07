@@ -10,6 +10,7 @@ using ApiCatalogo.Context;
 using Microsoft.EntityFrameworkCore;
 using ApiCatalogo.Services;
 using Microsoft.Extensions.Configuration;
+using ApiCatalogo.Repository;
 
 namespace ApiCatalogo.Controllers
 {
@@ -18,14 +19,14 @@ namespace ApiCatalogo.Controllers
   [ApiController]
   public class CategoriasController : ControllerBase
   {
-    private readonly AppDbContext _context;
+    private readonly IUnitOfWork _uof;
     private readonly IConfiguration _configuracao;
     private readonly ILogger _logger;
 
-    public CategoriasController(AppDbContext contexto, IConfiguration config,
+    public CategoriasController(IUnitOfWork contexto, IConfiguration config,
       ILogger<CategoriasController> logger)
     {
-      _context = contexto;
+      _uof = contexto;
       _configuracao = config;
       _logger = logger;
     }
@@ -46,14 +47,14 @@ namespace ApiCatalogo.Controllers
     [HttpGet]
     public ActionResult<IEnumerable<Categoria>> Get()
     {
-      return _context.Categorias.AsNoTracking().ToList();
+      return _uof.CategoriaRepository.Get().ToList();
     }
 
     [HttpGet("{id}", Name = "ObterCategoria")]
     public ActionResult<Categoria> Get(int id)
     {
       _logger.LogInformation("## GetPorId");
-      var categoria = _context.Categorias.AsNoTracking().FirstOrDefault(c => c.CategoriaId == id);
+      var categoria = _uof.CategoriaRepository.GetById(c => c.CategoriaId == id);
       if (categoria == null)
       {
         return NotFound();
@@ -64,8 +65,8 @@ namespace ApiCatalogo.Controllers
     [HttpPost]
     public ActionResult Post([FromBody] Categoria categoria)
     {
-      _context.Categorias.Add(categoria);
-      _context.SaveChanges();
+      _uof.CategoriaRepository.Add(categoria);
+      _uof.Commit();
       return new CreatedAtRouteResult("ObterCategoria", new { id = categoria.CategoriaId }, categoria);
     }
 
@@ -76,21 +77,21 @@ namespace ApiCatalogo.Controllers
       {
         return BadRequest();
       }
-      _context.Entry(categoria).State = EntityState.Modified;
-      _context.SaveChanges();
+      _uof.CategoriaRepository.Update(categoria);
+      _uof.Commit();
       return Ok();
     }
 
     [HttpDelete("{id}")]
     public ActionResult<Categoria> Delete(int id)
     {
-      var categoria = _context.Categorias.Find(id);
+      var categoria = _uof.CategoriaRepository.GetById(c => c.CategoriaId == id);
       if (categoria == null)
       {
         return NotFound();
       }
-      _context.Categorias.Remove(categoria);
-      _context.SaveChanges();
+      _uof.CategoriaRepository.Delete(categoria);
+      _uof.Commit();
       return categoria;
     }
 
@@ -98,7 +99,7 @@ namespace ApiCatalogo.Controllers
     public ActionResult<IEnumerable<Categoria>> GetCategoriasProdutos()
     {
       _logger.LogInformation("## GetCategoriasProdutos");
-      return _context.Categorias.Include(x => x.Produtos).AsNoTracking().ToList();
+      return _uof.CategoriaRepository.GetCategoriasProdutos().ToList();
     }
   }
 

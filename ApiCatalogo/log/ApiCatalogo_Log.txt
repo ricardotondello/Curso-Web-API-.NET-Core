@@ -46,3 +46,121 @@ Information: 2 - Executed action ApiCatalogo.Controllers.ProdutosController.Get 
 Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.ProdutosController.Get (ApiCatalogo)'
 Information: 2 - Request finished in 1675.2879ms 200 application/json; charset=utf-8
 Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/produtos application/json 271
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.ProdutosController.Get (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Get", controller = "Produtos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ApiCatalogo.Models.Produto]] Get() on controller ApiCatalogo.Controllers.ProdutosController (ApiCatalogo).
+Information: 0 - Metodo: OnActionExecuting
+Information: 0 - Data: 07/04/2020 06:40:11
+Information: 0 - ModelState: True
+Information: 10403 - Entity Framework Core 3.1.3 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+Information: 20101 - Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "p"."ProdutoId", "p"."CategoriaId", "p"."DataCadastro", "p"."Descricao", "p"."Estoque", "p"."ImagemURL", "p"."Nome", "p"."Preco"
+FROM "Produtos" AS "p"
+Information: 0 - Metodo: OnActionExecuted
+Information: 0 - Data: 07/04/2020 06:40:12
+Information: 0 - ModelState: True
+Information: 1 - Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ApiCatalogo.Models.Produto, ApiCatalogo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+Information: 2 - Executed action ApiCatalogo.Controllers.ProdutosController.Get (ApiCatalogo) in 1566.6664ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.ProdutosController.Get (ApiCatalogo)'
+Information: 2 - Request finished in 1733.3183ms 200 application/json; charset=utf-8
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/produtos/1 application/json 271
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.ProdutosController.Get (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Get", controller = "Produtos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[ApiCatalogo.Models.Produto] Get(Int32, System.String) on controller ApiCatalogo.Controllers.ProdutosController (ApiCatalogo).
+Information: 10403 - Entity Framework Core 3.1.3 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+Information: 20101 - Executed DbCommand (5ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT "p"."ProdutoId", "p"."CategoriaId", "p"."DataCadastro", "p"."Descricao", "p"."Estoque", "p"."ImagemURL", "p"."Nome", "p"."Preco"
+FROM "Produtos" AS "p"
+WHERE "p"."ProdutoId" = @__id_0
+LIMIT 2
+Information: 1 - Executing ObjectResult, writing value of type 'ApiCatalogo.Models.Produto'.
+Information: 2 - Executed action ApiCatalogo.Controllers.ProdutosController.Get (ApiCatalogo) in 358.872ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.ProdutosController.Get (ApiCatalogo)'
+Information: 2 - Request finished in 419.7812ms 200 application/json; charset=utf-8
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/produtos/menorpreco application/json 271
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.ProdutosController.GetProdutosPrecos (ApiCatalogo)'
+Information: 3 - Route matched with {action = "GetProdutosPrecos", controller = "Produtos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ApiCatalogo.Models.Produto]] GetProdutosPrecos() on controller ApiCatalogo.Controllers.ProdutosController (ApiCatalogo).
+Information: 10403 - Entity Framework Core 3.1.3 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+Information: 2 - Executed action ApiCatalogo.Controllers.ProdutosController.GetProdutosPrecos (ApiCatalogo) in 55.9584ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.ProdutosController.GetProdutosPrecos (ApiCatalogo)'
+Error: 1 - An unhandled exception has occurred while executing the request.
+Information: 2 - Request finished in 205.7971ms 500 application/json
+Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/categorias application/json 271
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.CategoriasController.Get (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Get", controller = "Categorias"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ApiCatalogo.Models.Categoria]] Get() on controller ApiCatalogo.Controllers.CategoriasController (ApiCatalogo).
+Information: 10403 - Entity Framework Core 3.1.3 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+Information: 20101 - Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "c"."CategoriaId", "c"."ImagemURL", "c"."Nome"
+FROM "Categorias" AS "c"
+Information: 1 - Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ApiCatalogo.Models.Categoria, ApiCatalogo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+Information: 2 - Executed action ApiCatalogo.Controllers.CategoriasController.Get (ApiCatalogo) in 1475.8221ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.CategoriasController.Get (ApiCatalogo)'
+Information: 2 - Request finished in 1639.6299ms 200 application/json; charset=utf-8
+Information: 1 - Request starting HTTP/1.1 POST https://localhost:5001/api/categorias application/json 100
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.CategoriasController.Post (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Post", controller = "Categorias"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Post(ApiCatalogo.Models.Categoria) on controller ApiCatalogo.Controllers.CategoriasController (ApiCatalogo).
+Information: 10403 - Entity Framework Core 3.1.3 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+Information: 20101 - Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 16), @p1='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Categorias" ("ImagemURL", "Nome")
+VALUES (@p0, @p1);
+SELECT "CategoriaId"
+FROM "Categorias"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+Information: 1 - Executing ObjectResult, writing value of type 'ApiCatalogo.Models.Categoria'.
+Information: 2 - Executed action ApiCatalogo.Controllers.CategoriasController.Post (ApiCatalogo) in 594.1018ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.CategoriasController.Post (ApiCatalogo)'
+Information: 2 - Request finished in 652.4802ms 201 application/json; charset=utf-8
+Information: 1 - Request starting HTTP/1.1 POST https://localhost:5001/api/categorias application/json 100
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.CategoriasController.Post (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Post", controller = "Categorias"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Post(ApiCatalogo.Models.Categoria) on controller ApiCatalogo.Controllers.CategoriasController (ApiCatalogo).
+Information: 10403 - Entity Framework Core 3.1.3 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+Information: 20101 - Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 16), @p1='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Categorias" ("ImagemURL", "Nome")
+VALUES (@p0, @p1);
+SELECT "CategoriaId"
+FROM "Categorias"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+Information: 1 - Executing ObjectResult, writing value of type 'ApiCatalogo.Models.Categoria'.
+Information: 2 - Executed action ApiCatalogo.Controllers.CategoriasController.Post (ApiCatalogo) in 75.4489ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.CategoriasController.Post (ApiCatalogo)'
+Information: 2 - Request finished in 84.0359ms 201 application/json; charset=utf-8
+Information: 1 - Request starting HTTP/1.1 POST https://localhost:5001/api/categorias application/json 100
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.CategoriasController.Post (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Post", controller = "Categorias"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Post(ApiCatalogo.Models.Categoria) on controller ApiCatalogo.Controllers.CategoriasController (ApiCatalogo).
+Information: 10403 - Entity Framework Core 3.1.3 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+Information: 20101 - Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 16), @p1='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Categorias" ("ImagemURL", "Nome")
+VALUES (@p0, @p1);
+SELECT "CategoriaId"
+FROM "Categorias"
+WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+Information: 1 - Executing ObjectResult, writing value of type 'ApiCatalogo.Models.Categoria'.
+Information: 2 - Executed action ApiCatalogo.Controllers.CategoriasController.Post (ApiCatalogo) in 35.0149ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.CategoriasController.Post (ApiCatalogo)'
+Information: 2 - Request finished in 46.5285ms 201 application/json; charset=utf-8
+Information: 1 - Request starting HTTP/1.1 PUT https://localhost:5001/api/categorias application/json 109
+Information: 0 - Executing endpoint '405 HTTP Method Not Supported'
+Information: 1 - Executed endpoint '405 HTTP Method Not Supported'
+Information: 2 - Request finished in 11.9313ms 405 
+Information: 1 - Request starting HTTP/1.1 PUT https://localhost:5001/api/categorias/6 application/json 109
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.CategoriasController.Put (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Put", controller = "Categorias"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Put(Int32, ApiCatalogo.Models.Categoria) on controller ApiCatalogo.Controllers.CategoriasController (ApiCatalogo).
+Information: 10403 - Entity Framework Core 3.1.3 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+Information: 20101 - Executed DbCommand (1ms) [Parameters=[@p2='?', @p0='?' (Size = 16), @p1='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+UPDATE "Categorias" SET "ImagemURL" = @p0, "Nome" = @p1
+WHERE "CategoriaId" = @p2;
+SELECT changes();
+Information: 1 - Executing HttpStatusCodeResult, setting HTTP status code 200
+Information: 2 - Executed action ApiCatalogo.Controllers.CategoriasController.Put (ApiCatalogo) in 55.3826ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.CategoriasController.Put (ApiCatalogo)'
+Information: 2 - Request finished in 70.9237ms 200 
