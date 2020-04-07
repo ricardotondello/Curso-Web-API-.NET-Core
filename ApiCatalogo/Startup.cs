@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using ApiCatalogo.Services;
 using ApiCatalogo.Filters;
+using ApiCatalogo.Extensions;
 
 namespace ApiCatalogo
 {
@@ -55,7 +56,10 @@ namespace ApiCatalogo
       {
         app.UseDeveloperExceptionPage();
       }
-
+      
+      //midlware tratamento erro
+      app.ConfigureExceptionHandler();
+      
       app.UseHttpsRedirection();
 
       app.UseRouting();

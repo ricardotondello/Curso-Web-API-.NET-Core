@@ -41,6 +41,8 @@ namespace ApiCatalogo.Controllers
     [HttpGet("{id:int:min(1)}", Name = "ObterProduto")]
     public async Task<ActionResult<Produto>> GetAsync(int id, string param2)
     {
+      //throw new Exception("Erro global");
+
       var produto = _context.Produtos.AsNoTracking().FirstOrDefaultAsync(p => p.ProdutoId == id);
 
       if (produto == null)
