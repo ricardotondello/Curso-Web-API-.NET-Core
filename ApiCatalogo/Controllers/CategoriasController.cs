@@ -20,17 +20,20 @@ namespace ApiCatalogo.Controllers
   {
     private readonly AppDbContext _context;
     private readonly IConfiguration _configuracao;
+    private readonly ILogger _logger;
 
-    public CategoriasController(AppDbContext contexto, IConfiguration config)
+    public CategoriasController(AppDbContext contexto, IConfiguration config,
+      ILogger<CategoriasController> logger)
     {
       _context = contexto;
       _configuracao = config;
+      _logger = logger;
     }
 
     [HttpGet("autor")]
     public string GetAutor()
     {
-       return $"Autor: {_configuracao["autor"]}, Conexao: {_configuracao["ConnectionStrings:DefaultConnection"]}" ;
+      return $"Autor: {_configuracao["autor"]}, Conexao: {_configuracao["ConnectionStrings:DefaultConnection"]}";
     }
 
     [HttpGet("saudacao/{nome}")]
@@ -49,6 +52,7 @@ namespace ApiCatalogo.Controllers
     [HttpGet("{id}", Name = "ObterCategoria")]
     public ActionResult<Categoria> Get(int id)
     {
+      _logger.LogInformation("## GetPorId");
       var categoria = _context.Categorias.AsNoTracking().FirstOrDefault(c => c.CategoriaId == id);
       if (categoria == null)
       {
@@ -93,6 +97,7 @@ namespace ApiCatalogo.Controllers
     [HttpGet("produtos")]
     public ActionResult<IEnumerable<Categoria>> GetCategoriasProdutos()
     {
+      _logger.LogInformation("## GetCategoriasProdutos");
       return _context.Categorias.Include(x => x.Produtos).AsNoTracking().ToList();
     }
   }

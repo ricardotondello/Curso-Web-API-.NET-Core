@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using ApiCatalogo.Services;
 using ApiCatalogo.Filters;
 using ApiCatalogo.Extensions;
+using ApiCatalogo.Logging;
 
 namespace ApiCatalogo
 {
@@ -32,7 +33,7 @@ namespace ApiCatalogo
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddScoped<ApiLoggingFilter>();
-      
+
       services.AddDbContext<AppDbContext>(
           options => options.UseSqlite(
               Configuration.GetConnectionString("DefaultConnection")
@@ -40,7 +41,7 @@ namespace ApiCatalogo
       );
 
       services.AddTransient<IMeuServico, MeuServico>();
-      
+
       services.AddControllers()
           .AddNewtonsoftJson(options =>
           {
@@ -50,16 +51,23 @@ namespace ApiCatalogo
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
+      ILoggerFactory loggerFactory)
     {
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
       }
-      
+
+      //Tratamento de logging
+      loggerFactory.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderConfiguration
+      {
+        LogLevel = LogLevel.Information
+      })); ;
+
       //midlware tratamento erro
       app.ConfigureExceptionHandler();
-      
+
       app.UseHttpsRedirection();
 
       app.UseRouting();
