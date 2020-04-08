@@ -18,6 +18,8 @@ using ApiCatalogo.Filters;
 using ApiCatalogo.Extensions;
 using ApiCatalogo.Logging;
 using ApiCatalogo.Repository;
+using AutoMapper;
+using ApiCatalogo.DTOs.Mappings;
 
 namespace ApiCatalogo
 {
@@ -33,6 +35,16 @@ namespace ApiCatalogo
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+
+      //auto mapper
+      var mappingConfig = new MapperConfiguration(mc =>
+      {
+          mc.AddProfile(new MappingProfile());
+      });
+      IMapper mapper = mappingConfig.CreateMapper();
+      services.AddSingleton(mapper);
+      //fim auto mapper
+
       services.AddScoped<ApiLoggingFilter>();
 
       services.AddScoped<IUnitOfWork, UnitOfWork>();
