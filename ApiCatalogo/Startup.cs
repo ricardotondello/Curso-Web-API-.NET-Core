@@ -20,6 +20,7 @@ using ApiCatalogo.Logging;
 using ApiCatalogo.Repository;
 using AutoMapper;
 using ApiCatalogo.DTOs.Mappings;
+using Microsoft.AspNetCore.Identity;
 
 namespace ApiCatalogo
 {
@@ -39,7 +40,7 @@ namespace ApiCatalogo
       //auto mapper
       var mappingConfig = new MapperConfiguration(mc =>
       {
-          mc.AddProfile(new MappingProfile());
+        mc.AddProfile(new MappingProfile());
       });
       IMapper mapper = mappingConfig.CreateMapper();
       services.AddSingleton(mapper);
@@ -53,6 +54,12 @@ namespace ApiCatalogo
               Configuration.GetConnectionString("DefaultConnection")
           )
       );
+
+      //Identity
+      services.AddIdentity<IdentityUser, IdentityRole>()
+        .AddEntityFrameworkStores<AppDbContext>()
+        .AddDefaultTokenProviders();
+      //fim Identity
 
       services.AddTransient<IMeuServico, MeuServico>();
 
@@ -86,6 +93,8 @@ namespace ApiCatalogo
 
       app.UseRouting();
 
+      app.UseAuthentication();
+      
       app.UseAuthorization();
 
       app.UseEndpoints(endpoints =>

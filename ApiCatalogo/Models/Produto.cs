@@ -23,6 +23,7 @@ namespace ApiCatalogo.Models
     public string Descricao { get; set; }
 
     [Required]
+    [Range(1, 10000, ErrorMessage= "O Preco deve estar entre {1} e {2}")]
     public decimal Preco { get; set; }
 
     [Required]
