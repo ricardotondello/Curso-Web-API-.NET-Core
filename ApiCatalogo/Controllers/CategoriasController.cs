@@ -13,10 +13,11 @@ using Microsoft.Extensions.Configuration;
 using ApiCatalogo.Repository;
 using AutoMapper;
 using ApiCatalogo.DTOs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApiCatalogo.Controllers
 {
-
+  [Authorize(AuthenticationSchemes = "Bearer")]
   [Route("api/[Controller]")]
   [ApiController]
   public class CategoriasController : ControllerBase

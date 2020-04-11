@@ -21,6 +21,9 @@ using ApiCatalogo.Repository;
 using AutoMapper;
 using ApiCatalogo.DTOs.Mappings;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace ApiCatalogo
 {
@@ -61,6 +64,22 @@ namespace ApiCatalogo
         .AddDefaultTokenProviders();
       //fim Identity
 
+      //validacao token JWT
+      services.AddAuthentication(
+        JwtBearerDefaults.AuthenticationScheme).AddJwtBearer( options => 
+          options.TokenValidationParameters = new TokenValidationParameters
+          {
+              ValidateIssuer = true,
+              ValidateAudience = true,
+              ValidateLifetime = true,
+              ValidIssuer = Configuration["TokenConfiguration:Issuer"],
+              ValidAudience = Configuration["TokenConfiguration:Audience"],
+              ValidateIssuerSigningKey = true,
+              IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+          });
+
+      //fim validacao token JWT
+      
       services.AddTransient<IMeuServico, MeuServico>();
 
       services.AddControllers()
