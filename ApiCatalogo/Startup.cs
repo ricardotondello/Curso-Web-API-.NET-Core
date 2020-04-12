@@ -24,6 +24,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Mvc.Versioning;
 
 namespace ApiCatalogo
 {
@@ -41,7 +42,10 @@ namespace ApiCatalogo
     {
 
       //CORS
-      services.AddCors();
+      services.AddCors(c =>
+                        {
+                          c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                        });
 
       //auto mapper
       var mappingConfig = new MapperConfiguration(mc =>
@@ -69,20 +73,19 @@ namespace ApiCatalogo
 
       //validacao token JWT
       services.AddAuthentication(
-        JwtBearerDefaults.AuthenticationScheme).AddJwtBearer( options => 
-          options.TokenValidationParameters = new TokenValidationParameters
-          {
-              ValidateIssuer = true,
-              ValidateAudience = true,
-              ValidateLifetime = true,
-              ValidIssuer = Configuration["TokenConfiguration:Issuer"],
-              ValidAudience = Configuration["TokenConfiguration:Audience"],
-              ValidateIssuerSigningKey = true,
-              IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
-          });
-
+        JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+         options.TokenValidationParameters = new TokenValidationParameters
+         {
+           ValidateIssuer = true,
+           ValidateAudience = true,
+           ValidateLifetime = true,
+           ValidIssuer = Configuration["TokenConfiguration:Issuer"],
+           ValidAudience = Configuration["TokenConfiguration:Audience"],
+           ValidateIssuerSigningKey = true,
+           IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+         });
       //fim validacao token JWT
-      
+
       services.AddTransient<IMeuServico, MeuServico>();
 
       services.AddControllers()
@@ -91,13 +94,21 @@ namespace ApiCatalogo
             options.SerializerSettings.ReferenceLoopHandling =
                       Newtonsoft.Json.ReferenceLoopHandling.Ignore;
           });
+
+      services.AddApiVersioning(opt =>
+      {
+        opt.AssumeDefaultVersionWhenUnspecified = true;
+        opt.DefaultApiVersion = new ApiVersion(1, 0);
+        opt.ReportApiVersions = true;
+        opt.ApiVersionReader = new HeaderApiVersionReader("x-api-version");
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
       ILoggerFactory loggerFactory)
     {
-      
+
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
@@ -117,11 +128,12 @@ namespace ApiCatalogo
       app.UseRouting();
 
       app.UseAuthentication();
-      
+
       app.UseAuthorization();
 
-      //app.UseCors(opt => opt.WithOrigins("https://www.apirequest.io"));
-      app.UseCors();
+      app.UseCors(opt => opt.WithOrigins("https://www.apirequest.io"));
+      //app.UseCors();
+      //app.UseCors(options => options.AllowAnyOrigin());
 
       app.UseEndpoints(endpoints =>
       {

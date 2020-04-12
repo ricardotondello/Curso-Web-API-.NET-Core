@@ -949,3 +949,142 @@ Information: 0 - Application started. Press Ctrl+C to shut down.
 Information: 0 - Hosting environment: Development
 Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
 Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/teste application/json 68
+Error: 1 - An unhandled exception has occurred while executing the request.
+Information: 2 - Request finished in 320.3956ms 500 application/json
+Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/teste application/json 68
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.TesteV1Controller.Get (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Get", controller = "TesteV1"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Get() on controller ApiCatalogo.Controllers.TesteV1Controller (ApiCatalogo).
+Information: 1 - Executing ObjectResult, writing value of type 'System.String'.
+Information: 2 - Executed action ApiCatalogo.Controllers.TesteV1Controller.Get (ApiCatalogo) in 37.4148ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.TesteV1Controller.Get (ApiCatalogo)'
+Information: 2 - Request finished in 198.5549ms 200 text/plain; charset=utf-8
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/teste/api-version=2 application/json 68
+Information: 2 - Request finished in 10.1757ms 404 
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/teste?api-version=2 application/json 68
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.TesteV2Controller.Get (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Get", controller = "TesteV2"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Get() on controller ApiCatalogo.Controllers.TesteV2Controller (ApiCatalogo).
+Information: 1 - Executing ObjectResult, writing value of type 'System.String'.
+Information: 2 - Executed action ApiCatalogo.Controllers.TesteV2Controller.Get (ApiCatalogo) in 5.0577ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.TesteV2Controller.Get (ApiCatalogo)'
+Information: 2 - Request finished in 22.7113ms 200 text/plain; charset=utf-8
+Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/teste?api-version=2 application/json 68
+Information: 2 - Request finished in 141.5328ms 404 
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/teste application/json 68
+Information: 2 - Request finished in 25.6514ms 404 
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/v1/teste application/json 68
+Information: 2 - Request finished in 52.0714ms 404 
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/1/teste application/json 68
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.TesteV1Controller.Get (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Get", controller = "TesteV1"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Get() on controller ApiCatalogo.Controllers.TesteV1Controller (ApiCatalogo).
+Information: 1 - Executing ObjectResult, writing value of type 'System.String'.
+Information: 2 - Executed action ApiCatalogo.Controllers.TesteV1Controller.Get (ApiCatalogo) in 24.5593ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.TesteV1Controller.Get (ApiCatalogo)'
+Information: 2 - Request finished in 264.8066ms 200 text/plain; charset=utf-8
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/2/teste application/json 68
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.TesteV2Controller.Get (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Get", controller = "TesteV2"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Get() on controller ApiCatalogo.Controllers.TesteV2Controller (ApiCatalogo).
+Information: 1 - Executing ObjectResult, writing value of type 'System.String'.
+Information: 2 - Executed action ApiCatalogo.Controllers.TesteV2Controller.Get (ApiCatalogo) in 4.8515ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.TesteV2Controller.Get (ApiCatalogo)'
+Information: 2 - Request finished in 29.7863ms 200 text/plain; charset=utf-8
+Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/v1/teste application/json 68
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.TesteV1Controller.Get (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Get", controller = "TesteV1"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Get() on controller ApiCatalogo.Controllers.TesteV1Controller (ApiCatalogo).
+Information: 1 - Executing ObjectResult, writing value of type 'System.String'.
+Information: 2 - Executed action ApiCatalogo.Controllers.TesteV1Controller.Get (ApiCatalogo) in 79.9811ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.TesteV1Controller.Get (ApiCatalogo)'
+Information: 2 - Request finished in 263.2399ms 200 text/plain; charset=utf-8
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/v2/teste application/json 68
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.TesteV2Controller.Get (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Get", controller = "TesteV2"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Get() on controller ApiCatalogo.Controllers.TesteV2Controller (ApiCatalogo).
+Information: 1 - Executing ObjectResult, writing value of type 'System.String'.
+Information: 2 - Executed action ApiCatalogo.Controllers.TesteV2Controller.Get (ApiCatalogo) in 17.8312ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.TesteV2Controller.Get (ApiCatalogo)'
+Information: 2 - Request finished in 50.5534ms 200 text/plain; charset=utf-8
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/v1/teste application/json 68
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.TesteV1Controller.Get (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Get", controller = "TesteV1"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Get() on controller ApiCatalogo.Controllers.TesteV1Controller (ApiCatalogo).
+Information: 1 - Executing ObjectResult, writing value of type 'System.String'.
+Information: 2 - Executed action ApiCatalogo.Controllers.TesteV1Controller.Get (ApiCatalogo) in 3.2991ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.TesteV1Controller.Get (ApiCatalogo)'
+Information: 2 - Request finished in 39.1367ms 200 text/plain; charset=utf-8
+Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/v2/teste application/json 68
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.TesteV2Controller.Get (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Get", controller = "TesteV2"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Get() on controller ApiCatalogo.Controllers.TesteV2Controller (ApiCatalogo).
+Information: 1 - Executing ObjectResult, writing value of type 'System.String'.
+Information: 2 - Executed action ApiCatalogo.Controllers.TesteV2Controller.Get (ApiCatalogo) in 31.6038ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.TesteV2Controller.Get (ApiCatalogo)'
+Information: 2 - Request finished in 284.2288ms 200 text/plain; charset=utf-8
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/v3/teste application/json 68
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.TesteV2Controller.GetVersao3 (ApiCatalogo)'
+Information: 3 - Route matched with {action = "GetVersao3", controller = "TesteV2"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult GetVersao3() on controller ApiCatalogo.Controllers.TesteV2Controller (ApiCatalogo).
+Information: 1 - Executing ObjectResult, writing value of type 'System.String'.
+Information: 2 - Executed action ApiCatalogo.Controllers.TesteV2Controller.GetVersao3 (ApiCatalogo) in 3.0169ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.TesteV2Controller.GetVersao3 (ApiCatalogo)'
+Information: 2 - Request finished in 27.3173ms 200 text/plain; charset=utf-8
+Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/api/produtos application/json 68
+Information: 0 - Executing endpoint 'ApiCatalogo.Controllers.ProdutosController.Get (ApiCatalogo)'
+Information: 3 - Route matched with {action = "Get", controller = "Produtos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ApiCatalogo.DTOs.ProdutoDTO]] Get() on controller ApiCatalogo.Controllers.ProdutosController (ApiCatalogo).
+Information: 0 - Metodo: OnActionExecuting
+Information: 0 - Data: 13/04/2020 05:40:27
+Information: 0 - ModelState: True
+Information: 10403 - Entity Framework Core 3.1.3 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+Information: 20101 - Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "p"."ProdutoId", "p"."CategoriaId", "p"."DataCadastro", "p"."Descricao", "p"."Estoque", "p"."ImagemURL", "p"."Nome", "p"."Preco"
+FROM "Produtos" AS "p"
+Information: 0 - Metodo: OnActionExecuted
+Information: 0 - Data: 13/04/2020 05:40:28
+Information: 0 - ModelState: True
+Information: 1 - Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ApiCatalogo.DTOs.ProdutoDTO, ApiCatalogo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+Information: 2 - Executed action ApiCatalogo.Controllers.ProdutosController.Get (ApiCatalogo) in 1753.1187ms
+Information: 1 - Executed endpoint 'ApiCatalogo.Controllers.ProdutosController.Get (ApiCatalogo)'
+Information: 2 - Request finished in 1945.69ms 200 application/json; charset=utf-8
+Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 0 - Application is shutting down...
