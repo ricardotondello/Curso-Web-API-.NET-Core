@@ -40,6 +40,9 @@ namespace ApiCatalogo
     public void ConfigureServices(IServiceCollection services)
     {
 
+      //CORS
+      services.AddCors();
+
       //auto mapper
       var mappingConfig = new MapperConfiguration(mc =>
       {
@@ -94,6 +97,7 @@ namespace ApiCatalogo
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
       ILoggerFactory loggerFactory)
     {
+      
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
@@ -115,6 +119,9 @@ namespace ApiCatalogo
       app.UseAuthentication();
       
       app.UseAuthorization();
+
+      //app.UseCors(opt => opt.WithOrigins("https://www.apirequest.io"));
+      app.UseCors();
 
       app.UseEndpoints(endpoints =>
       {
