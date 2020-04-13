@@ -25,6 +25,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.IO;
 
 namespace ApiCatalogo
 {
@@ -88,6 +91,35 @@ namespace ApiCatalogo
 
       services.AddTransient<IMeuServico, MeuServico>();
 
+      //swagger
+      services.AddSwaggerGen(c =>
+      {
+        c.SwaggerDoc("v1", new OpenApiInfo
+        {
+          Version = "v1",
+          Title = "APICatalogo",
+          Description = "Catalogo de Produtos e Categorias",
+          TermsOfService = new Uri("http://google.com"),
+          Contact = new OpenApiContact
+          {
+            Name = "Ricardo Tondello",
+            Email = "rkdtondello@gmail.com",
+            Url = new Uri("http://google.com"),
+          },
+          License = new OpenApiLicense
+          {
+            Name = "Usar sobre LICX",
+            Url = new Uri("http://google.com"),
+          }
+        });
+
+
+        var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+        var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+        c.IncludeXmlComments(xmlPath);
+      });
+      //fim swagger
+
       services.AddControllers()
           .AddNewtonsoftJson(options =>
           {
@@ -134,6 +166,14 @@ namespace ApiCatalogo
       app.UseCors(opt => opt.WithOrigins("https://www.apirequest.io"));
       //app.UseCors();
       //app.UseCors(options => options.AllowAnyOrigin());
+
+      //swagger
+      app.UseSwagger();
+      app.UseSwaggerUI(c =>
+      {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "APICatalogo");
+      });
+      //fim swagger
 
       app.UseEndpoints(endpoints =>
       {

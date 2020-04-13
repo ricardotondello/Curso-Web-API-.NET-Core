@@ -1088,3 +1088,109 @@ Information: 0 - Application started. Press Ctrl+C to shut down.
 Information: 0 - Hosting environment: Development
 Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
 Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json application/json 68
+Error: 1 - An unhandled exception has occurred while executing the request.
+Information: 2 - Request finished in 479.9227ms 500 application/json
+Information: 0 - Application is shutting down...
+Critical: 6 - Application startup exception
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 1 - Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json application/json 68
+Information: 2 - Request finished in 242.7176ms 200 application/json;charset=utf-8
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger.html  
+Information: 2 - Request finished in 11.01ms 404 
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+Information: 2 - Request finished in 68.8077ms 200 text/html;charset=utf-8
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui.css  
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-bundle.js  
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js  
+Information: 2 - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+Information: 2 - Request finished in 102.8608ms 200 text/css
+Information: 2 - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+Information: 2 - Request finished in 102.018ms 200 application/javascript
+Information: 2 - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+Information: 2 - Request finished in 122.7204ms 200 application/javascript
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+Information: 2 - Request finished in 19.1204ms 200 application/json;charset=utf-8
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/favicon-32x32.png  
+Information: 2 - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+Information: 2 - Request finished in 3.0476ms 200 image/png
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/api/Categorias/autor  
+Information: 2 - Authorization failed.
+Information: 12 - AuthenticationScheme: Bearer was challenged.
+Information: 2 - Request finished in 118.0207ms 401 
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/api/Categorias  
+Information: 2 - Authorization failed.
+Information: 12 - AuthenticationScheme: Bearer was challenged.
+Information: 2 - Request finished in 9.7435ms 401 
+Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger  
+Information: 2 - Request finished in 109.6426ms 301 
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+Information: 2 - Request finished in 45.6184ms 200 text/html;charset=utf-8
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui.css  
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-bundle.js  
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js  
+Information: 2 - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+Information: 2 - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+Information: 2 - Request finished in 68.4077ms 200 text/css
+Information: 2 - Request finished in 67.8562ms 200 application/javascript
+Information: 2 - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+Information: 2 - Request finished in 83.3409ms 200 application/javascript
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+Information: 2 - Request finished in 203.3735ms 200 application/json;charset=utf-8
+Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+Information: 2 - Request finished in 160.2158ms 200 text/html;charset=utf-8
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui.css  
+Information: 2 - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+Information: 2 - Request finished in 66.9499ms 200 text/css
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+Information: 2 - Request finished in 257.8447ms 200 application/json;charset=utf-8
+Information: 0 - Application is shutting down...
+Information: 0 - Now listening on: https://localhost:5001
+Information: 0 - Now listening on: http://localhost:5000
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\workspace\Curso-Web-API-.NET-Core\ApiCatalogo
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+Information: 2 - Request finished in 168.2494ms 200 text/html;charset=utf-8
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui.css  
+Information: 2 - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+Information: 2 - Request finished in 80.9958ms 200 text/css
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+Information: 1 - Request starting HTTP/2 GET https://localhost:5001/swagger/favicon-32x32.png  
+Information: 2 - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+Information: 2 - Request finished in 3.9016ms 200 image/png
+Information: 2 - Request finished in 204.5929ms 200 application/json;charset=utf-8
+Information: 0 - Application is shutting down...

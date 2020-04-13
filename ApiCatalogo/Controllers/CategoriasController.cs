@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ApiCatalogo.Controllers
 {
+  [Produces("applications/json")]
   [Authorize(AuthenticationSchemes = "Bearer")]
   [Route("api/[Controller]")]
   [ApiController]
@@ -59,6 +60,14 @@ namespace ApiCatalogo.Controllers
       return categoriaDTO;
     }
 
+    /// <summary>
+    /// Obtem uma Categoria pelo seu id.
+    /// </summary>
+    /// <remarks>
+    /// exemplo
+    /// </remarks>
+    /// <param name="id">Id da categoria</param>
+    /// <returns>Object Categoria</returns>
     [HttpGet("{id}", Name = "ObterCategoria")]
     public ActionResult<CategoriaDTO> Get(int id)
     {
