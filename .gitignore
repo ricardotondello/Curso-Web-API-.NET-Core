@@ -1,5 +1,7 @@
-bin/*
-obj/*
 ApiCatalogo/bin/*
 ApiCatalogo/obj/*
 ApiCatalogo/log/*
+
+ApiCatalogoxUnitTest/bin/*
+ApiCatalogoxUnitTest/obj/*
+ApiCatalogoxUnitTest/log/*

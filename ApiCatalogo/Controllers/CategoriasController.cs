@@ -38,6 +38,12 @@ namespace ApiCatalogo.Controllers
       _mapper = mapper;
     }
 
+    public CategoriasController(IUnitOfWork contexto, IMapper mapper)
+    {
+      _uof = contexto;
+      _mapper = mapper;
+    }
+
     [HttpGet("autor")]
     public string GetAutor()
     {
@@ -54,11 +60,19 @@ namespace ApiCatalogo.Controllers
     [HttpGet]
     public ActionResult<IEnumerable<CategoriaDTO>> Get()
     {
-      var categoria = _uof.CategoriaRepository.Get().ToList();
-      
-      var categoriaDTO = _mapper.Map<List<CategoriaDTO>>(categoria);
+      try
+      {
+        var categoria = _uof.CategoriaRepository.Get().ToList();
 
-      return categoriaDTO;
+        var categoriaDTO = _mapper.Map<List<CategoriaDTO>>(categoria);
+
+        //throw new Exception();
+        return categoriaDTO;
+      }
+      catch (Exception)
+      {
+        return BadRequest();
+      }
     }
 
     /// <summary>
@@ -72,9 +86,12 @@ namespace ApiCatalogo.Controllers
     [HttpGet("{id}", Name = "ObterCategoria")]
     [ProducesResponseType(typeof(ProdutoDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<CategoriaDTO> Get(int id)
+    public ActionResult<CategoriaDTO> Get(int? id)
     {
-      _logger.LogInformation("## GetPorId");
+      if (_logger != null)
+      {
+        _logger.LogInformation("## GetPorId");
+      }
       var categoria = _uof.CategoriaRepository.GetById(c => c.CategoriaId == id);
       if (categoria == null)
       {
@@ -111,7 +128,7 @@ namespace ApiCatalogo.Controllers
     }
 
     [HttpDelete("{id}")]
-    public ActionResult<CategoriaDTO> Delete(int id)
+    public ActionResult<CategoriaDTO> Delete(int? id)
     {
       var categoria = _uof.CategoriaRepository.GetById(c => c.CategoriaId == id);
       if (categoria == null)
