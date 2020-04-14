@@ -2,3 +2,4 @@ bin/*
 obj/*
 ApiCatalogo/bin/*
 ApiCatalogo/obj/*
+ApiCatalogo/log/*

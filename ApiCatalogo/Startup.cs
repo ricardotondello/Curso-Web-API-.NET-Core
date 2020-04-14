@@ -75,8 +75,12 @@ namespace ApiCatalogo
       //fim Identity
 
       //validacao token JWT
-      services.AddAuthentication(
-        JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+      services.AddAuthentication(option =>
+            {
+                option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+            }).AddJwtBearer(options =>
          options.TokenValidationParameters = new TokenValidationParameters
          {
            ValidateIssuer = true,
@@ -117,6 +121,33 @@ namespace ApiCatalogo
         var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
         var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
         c.IncludeXmlComments(xmlPath);
+
+        //security para testes no swagger api
+
+        c.AddSecurityDefinition(
+          "Bearer", new OpenApiSecurityScheme
+          {
+            Scheme = "Bearer",
+            In = ParameterLocation.Header,
+            Description = "JWT Authorization header using the Bearer scheme.",
+            Name = "Authorization",
+            Type = SecuritySchemeType.ApiKey
+          });
+
+        c.AddSecurityRequirement(new OpenApiSecurityRequirement
+          {
+            {
+              new OpenApiSecurityScheme
+              {
+                Reference = new OpenApiReference
+                {
+                  Type = ReferenceType.SecurityScheme,
+                  Id = "Bearer"
+                }
+                },
+                new string[] {}
+            }
+          });
       });
       //fim swagger
 
@@ -159,13 +190,16 @@ namespace ApiCatalogo
 
       app.UseRouting();
 
+      app.UseCors(x => x
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
+      //app.UseCors();
+      //app.UseCors(options => options.AllowAnyOrigin());
+
       app.UseAuthentication();
 
       app.UseAuthorization();
-
-      app.UseCors(opt => opt.WithOrigins("https://www.apirequest.io"));
-      //app.UseCors();
-      //app.UseCors(options => options.AllowAnyOrigin());
 
       //swagger
       app.UseSwagger();

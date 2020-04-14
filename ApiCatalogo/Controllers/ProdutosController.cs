@@ -17,7 +17,8 @@ using ApiCatalogo.DTOs;
 
 namespace ApiCatalogo.Controllers
 {
-  [Produces("applications/json")]
+  [ApiConventionType(typeof(DefaultApiConventions))]
+  [Produces("application/json")]
   [Route("api/[Controller]")]
   [ApiController]
   public class ProdutosController : ControllerBase

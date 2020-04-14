@@ -14,10 +14,11 @@ using ApiCatalogo.Repository;
 using AutoMapper;
 using ApiCatalogo.DTOs;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace ApiCatalogo.Controllers
 {
-  [Produces("applications/json")]
+  [Produces("application/json")]
   [Authorize(AuthenticationSchemes = "Bearer")]
   [Route("api/[Controller]")]
   [ApiController]
@@ -69,6 +70,8 @@ namespace ApiCatalogo.Controllers
     /// <param name="id">Id da categoria</param>
     /// <returns>Object Categoria</returns>
     [HttpGet("{id}", Name = "ObterCategoria")]
+    [ProducesResponseType(typeof(ProdutoDTO), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public ActionResult<CategoriaDTO> Get(int id)
     {
       _logger.LogInformation("## GetPorId");
@@ -82,6 +85,8 @@ namespace ApiCatalogo.Controllers
     }
 
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public ActionResult Post([FromBody] CategoriaDTO categoriaDTO)
     {
       var categoria = _mapper.Map<Categoria>(categoriaDTO);
@@ -91,6 +96,7 @@ namespace ApiCatalogo.Controllers
     }
 
     [HttpPut("{id}")]
+    [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Put))]
     public ActionResult Put(int id, [FromBody] CategoriaDTO categoriaDTO)
     {
       var categoria = _mapper.Map<Categoria>(categoriaDTO);

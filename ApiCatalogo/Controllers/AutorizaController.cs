@@ -13,7 +13,7 @@ using System.Text;
 
 namespace ApiCatalogo.Controllers
 {
-  [Produces("applications/json")]
+  [Produces("application/json")]
   [Route("api/[Controller]")]
   [ApiController]
   public class AutorizaController : ControllerBase
