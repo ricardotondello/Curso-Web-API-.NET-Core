@@ -12,11 +12,13 @@ using ApiCatalogo.Filters;
 using ApiCatalogo.Repository;
 using AutoMapper;
 using ApiCatalogo.DTOs;
+using Microsoft.AspNet.OData;
 
 // .AsNoTracking() - nao faz cache das consultas
 
 namespace ApiCatalogo.Controllers
 {
+  [EnableQuery]
   [ApiConventionType(typeof(DefaultApiConventions))]
   [Produces("application/json")]
   [Route("api/[Controller]")]

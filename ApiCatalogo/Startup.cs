@@ -28,6 +28,7 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.IO;
+using Microsoft.AspNet.OData.Extensions;
 
 namespace ApiCatalogo
 {
@@ -77,8 +78,8 @@ namespace ApiCatalogo
       //validacao token JWT
       services.AddAuthentication(option =>
             {
-                option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+              option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+              option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
             }).AddJwtBearer(options =>
          options.TokenValidationParameters = new TokenValidationParameters
@@ -94,6 +95,10 @@ namespace ApiCatalogo
       //fim validacao token JWT
 
       services.AddTransient<IMeuServico, MeuServico>();
+
+      //ODATA
+      services.AddOData();
+      //FIM ODATA
 
       //swagger
       services.AddSwaggerGen(c =>
@@ -151,7 +156,8 @@ namespace ApiCatalogo
       });
       //fim swagger
 
-      services.AddControllers()
+      services.AddControllers(mvcOpt => 
+           mvcOpt.EnableEndpointRouting = false)
           .AddNewtonsoftJson(options =>
           {
             options.SerializerSettings.ReferenceLoopHandling =
@@ -209,10 +215,17 @@ namespace ApiCatalogo
       });
       //fim swagger
 
-      app.UseEndpoints(endpoints =>
-      {
-        endpoints.MapControllers();
-      });
+      // app.UseEndpoints(endpoints =>
+      // {
+      //   endpoints.MapControllers();
+      // });
+
+      app.UseMvc(option =>
+            {
+              option.EnableDependencyInjection();
+              option.Expand().Select().Count().OrderBy().Filter();
+            });
+
     }
   }
 }
