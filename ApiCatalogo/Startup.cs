@@ -29,6 +29,7 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.IO;
 using Microsoft.AspNet.OData.Extensions;
+using ApiCatalogo.GraphQL;
 
 namespace ApiCatalogo
 {
@@ -46,10 +47,13 @@ namespace ApiCatalogo
     {
 
       //CORS
-      services.AddCors(c =>
-                        {
-                          c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
-                        });
+      services.AddCors(options =>
+            {
+              options.AddPolicy("EnableCORS", builder =>
+              {
+                builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().Build();
+              });
+            });
 
       //auto mapper
       var mappingConfig = new MapperConfiguration(mc =>
@@ -63,6 +67,7 @@ namespace ApiCatalogo
       services.AddScoped<ApiLoggingFilter>();
 
       services.AddScoped<IUnitOfWork, UnitOfWork>();
+     
       services.AddDbContext<AppDbContext>(
           options => options.UseSqlite(
               Configuration.GetConnectionString("DefaultConnection")
@@ -156,7 +161,7 @@ namespace ApiCatalogo
       });
       //fim swagger
 
-      services.AddControllers(mvcOpt => 
+      services.AddControllers(mvcOpt =>
            mvcOpt.EnableEndpointRouting = false)
           .AddNewtonsoftJson(options =>
           {
@@ -196,16 +201,18 @@ namespace ApiCatalogo
 
       app.UseRouting();
 
-      app.UseCors(x => x
-               .AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader());
+      // app.UseCors(x => x
+      //          .AllowAnyOrigin()
+      //          .AllowAnyMethod()
+      //          .AllowAnyHeader());
       //app.UseCors();
       //app.UseCors(options => options.AllowAnyOrigin());
 
       app.UseAuthentication();
 
       app.UseAuthorization();
+
+      app.UseCors("EnableCORS");
 
       //swagger
       app.UseSwagger();
@@ -215,16 +222,18 @@ namespace ApiCatalogo
       });
       //fim swagger
 
-      // app.UseEndpoints(endpoints =>
-      // {
-      //   endpoints.MapControllers();
-      // });
+      app.UseMiddleware<TesteGraphQLMiddleware>();
 
       app.UseMvc(option =>
             {
               option.EnableDependencyInjection();
               option.Expand().Select().Count().OrderBy().Filter();
             });
+
+      app.UseEndpoints(endpoints =>
+      {
+        endpoints.MapControllers();
+      });
 
     }
   }
